@@ -10,9 +10,18 @@ Rectangle {
 //     property int speed: 10
     Dash {id: dash}
 
-    Text {
+    Row {
         anchors.centerIn: parent
-        text: "Speed: " + dash.speed
+        anchors.verticalCenterOffset: -20
+        Speed {
+            speed: dash.speed
+        }
+
+
+        Text {
+            anchors.centerIn: parent
+            text: "Speed: " + dash.speed
+        }
     }
 
     Timer {

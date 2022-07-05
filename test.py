@@ -18,8 +18,11 @@ class Dash(QObject):
         self.timer.start(100)
 
     def new_values(self):
-        self._speed = self._speed + 1
-        self.dash_update.emit()
+        if self._speed >= 50:
+            self.timer.stop()
+        else:
+            self._speed = self._speed + 1
+            self.dash_update.emit()
 
     # Define the getter of the 'name' property.  The C++ type of the
     # property is QString which Python will convert to and from a string.
